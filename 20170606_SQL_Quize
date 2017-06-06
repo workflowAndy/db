@@ -1,0 +1,41 @@
+
+1. Slect Everything in the Product Table
+  : select * from market.product
+
+2. Select everything in the Product Table where Price is Less than or equal to 400
+  :select * from market.product where price <= 400
+
+3. Select the Supplier Name and Address
+  :SELECT name as Supplier-Name,concat(city,".",country) as Address FROM market.supplier;
+
+4. Select products whose quantity is between 0 and 50 
+  :SELECT Name FROM market.stock where quantity between 0 and 50;
+
+5. select a list of all the company's suppliers
+  : select distinct(name) from market.supplier
+
+6. Select products supplied by Nokia and Toshiba
+  : select name from market.product where supplier in ('Nokia','Toshiba')
+
+7. List all STOCK products by their price from lowest to highest
+ : SELECT Name FROM market.stock order by price asc;
+
+8. List all STOCK prices in USD, assuming 1 USD = 0.75 CAD, show a column for CAD and a column for USD
+ : SELECT name,price as CAD, (price*0.75) as USD FROM market.stock;
+
+9. The restock quantity for CHEAP products cheaper than 600 is Quanitity 20.
+   The restock quanitiy for Expensive product costing more than 600 is quanitity 10 
+
+   a. List all cheap products that need to be restocked 1 TAB
+     : SELECT idStock,Name FROM market.stock where Price < 600 and quantity < 20
+
+
+   b. List all expensive products that need to be restocked 1 TAB
+     : SELECT idStock,Name FROM market.stock where Price > 600 and quantity > 10
+
+   c. List all products that need to be restocked BOTH TOGETHER
+     : SELECT idStock,Name FROM market.stock where (Price < 600 and quantity < 20) or (Price > 600 and quantity > 10) 
+
+10. Create a list of the suppliers from Product table 
+   : select distinct(supplier) from product
+
